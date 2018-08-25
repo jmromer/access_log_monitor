@@ -1,0 +1,36 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+click = "*"
+tailer = "*"
+
+[dev-packages]
+"flake8" = "*"
+"flake8-quotes" = "*"
+autoflake = "*"
+freezegun = "*"
+hy = "*"
+ipdb = "*"
+ipython = "*"
+isort = "*"
+jedi = ">=0.9.0"
+json-rpc = ">=1.8.1"
+mypy = ">=0.620"
+pytest = "*"
+pytest-mock = "*"
+pytest-spec = "*"
+service-factory = ">=0.1.5"
+yapf = "*"
+
+[requires]
+python_version = "3.7"
+
+[scripts]
+test = "pytest"
+mypy = "mypy access_log_monitor/"
+
+log = "env LOG_FILE=data/testlog.log python util/log_writer.py"
+smoketest = "./monitor_access_log --logfile data/testlog.log --alerting_threshold=1 --alerting_interval=1 --reporting_interval=30"

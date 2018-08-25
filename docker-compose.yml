@@ -1,0 +1,20 @@
+version: "3.7"
+
+services:
+  log_writer:
+    build: .
+    volumes:
+      - .:/usr/src/app
+    command: ["pipenv", "run", "log"]
+
+  log_monitor:
+    build: .
+    volumes:
+      - .:/usr/src/app
+    command: ["pipenv", "run", "smoketest"]
+
+  tests:
+    build: .
+    volumes:
+      - .:/usr/src/app
+    command: ["pipenv", "run", "test"]
