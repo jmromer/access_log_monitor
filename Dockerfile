@@ -1,11 +1,6 @@
 FROM python:3.7.0-alpine
 
-RUN apk update \
-&& apk add \
-build-base \
-postgresql \
-postgresql-dev \
-libpq
+RUN apk update && apk add build-base
 
 RUN touch /var/log/access.log
 RUN mkdir /usr/src/app/

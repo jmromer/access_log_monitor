@@ -12,9 +12,3 @@ services:
     volumes:
       - .:/usr/src/app
     command: ["pipenv", "run", "smoketest"]
-
-  tests:
-    build: .
-    volumes:
-      - .:/usr/src/app
-    command: ["pipenv", "run", "test"]
