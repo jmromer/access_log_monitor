@@ -46,7 +46,6 @@ def test_high_traffic_alerting(capsys, project_root):
     alerting = AlertingMonitor(threshold_rps=1, interval_sec=60)
 
     with open(entries_file, "r") as entries_f:
-
         for line in entries_f.readlines():
             with open(temp_file, "a") as templog:
                 templog.write(line)
