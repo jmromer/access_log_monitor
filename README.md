@@ -152,10 +152,10 @@ Design notes
 ------------
 
 A single iteration of monitoring is handled by `log_monitor.perform_monitoring`
-(NB: integration tests are in `log_monitor_test.py`):
+(NB: integration tests are in [log_monitor_test.py](access_log_monitor/log_monitor_test.py)):
 
 ```python
-# access_log_monitor/log_monitor.py L9-25 (7663d14e99)
+# access_log_monitor/log_monitor.py L9-25 (e33e530)
 
 def perform_monitoring(log: LogManager, datastore: LogStore,
                        analyzer: LogAnalyzer,
@@ -176,8 +176,8 @@ def perform_monitoring(log: LogManager, datastore: LogStore,
         monitor.process(analyzer)
 ```
 <sup>
-  <a href="https://github.com/jmromer/datadog/blob/7663d14e99/access_log_monitor/log_monitor.py#L9-L25">
-    access_log_monitor/log_monitor.py L9-25 (7663d14e99)
+  <a href="https://github.com/jmromer/datadog/blob/e33e530/access_log_monitor/log_monitor.py#L9-L25">
+    access_log_monitor/log_monitor.py L9-25 (e33e530)
   </a>
 </sup>
 <p></p>
@@ -189,7 +189,7 @@ When the log is updated, the most recent entry is read and added to the
 data store `datastore`, which is defined by subclassing `LogStore`:
 
 ```python
-# access_log_monitor/log_store.py L9-28 (7663d14e99)
+# access_log_monitor/log_store.py L9-28 (e33e530)
 
 class LogStore(metaclass=abc.ABCMeta):
     """
@@ -213,8 +213,8 @@ class LogStore(metaclass=abc.ABCMeta):
         pass
 ```
 <sup>
-  <a href="https://github.com/jmromer/datadog/blob/7663d14e99/access_log_monitor/log_store.py#L9-L28">
-    access_log_monitor/log_store.py L9-28 (7663d14e99)
+  <a href="https://github.com/jmromer/datadog/blob/e33e530/access_log_monitor/log_store.py#L9-L28">
+    access_log_monitor/log_store.py L9-28 (e33e530)
   </a>
 </sup>
 <p></p>
@@ -224,7 +224,7 @@ respond to a `perform` method--traffic summary and alerting logic is defined in
 `ReportingMonitor` and `AlertingMonitor`, respectively:
 
 ```python
-# monitor_access_log L47-50 (7663d14e99)
+# monitor_access_log L47-50 (e33e530)
 
 reporting = ReportingMonitor(reporting_interval)
 alerting = AlertingMonitor(
@@ -232,8 +232,8 @@ alerting = AlertingMonitor(
     interval_sec=(alerting_interval * 60))
 ```
 <sup>
-  <a href="https://github.com/jmromer/datadog/blob/7663d14e99/monitor_access_log#L47-L50">
-    monitor_access_log L47-50 (7663d14e99)
+  <a href="https://github.com/jmromer/datadog/blob/e33e530/monitor_access_log#L47-L50">
+    monitor_access_log L47-50 (e33e530)
   </a>
 </sup>
 <p></p>
