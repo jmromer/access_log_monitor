@@ -10,11 +10,11 @@ class LogDeque:
     A data structure designed to hold log entries
     from newest to oldest in left-to-right fashion.
 
-    Uses a deque for efficient inserting.
+    Uses a bounded-length deque for efficient inserting and memory consumption.
     """
 
     def __init__(self, entries: Optional[list] = None) -> None:
-        self.entries: deque = deque(entries or [])
+        self.entries: deque = deque(entries or [], maxlen=10_000)
 
     def add(self, timestamp: datetime, entry: LogLine):
         """

@@ -35,7 +35,7 @@ Provides sensible defaults but designed for flexibility:
     - [Sample Output](#sample-output)
     - [Design notes](#design-notes)
         - [Class hierarchy](#class-hierarchy)
-    - [Forthcoming improvements](#forthcoming-improvements)
+    - [Possible improvements](#possible-improvements)
 
 <!-- markdown-toc end -->
 
@@ -243,13 +243,15 @@ alerting = AlertingMonitor(
 ![uml-diagram](images/classes.png)
 
 
-Forthcoming improvements
--------------------------
+Possible improvements
+------------------------
 
 - Currently log monitors print to stdout. This could be made more flexible by
   abstracting away process completion work to another object or allowing clients
   to provide a completion handler. This would allow arbitrary alternative logic
   to be performed instead (e.g. sending an email, Slack message, or sms).
 
-- Currently limited by machine's main memory. LRU discarding would have to be
-  added to `LogStore`.
+- The current implementation has LRU discarding of log entries past 10,000 entries.
+  A more sophisticated approach could be implemented that takes into account the
+  monitoring parameters and discards entries based on their timestamp once it's
+  certain they're no longer of any use for any of the given log monitors.
