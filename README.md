@@ -100,6 +100,12 @@ Alternatively, build the project using Docker Compose:
 docker-compose up
 ```
 
+To increase the rate of log-writing, issue
+
+```
+docker-compose run log_writer
+```
+
 Sample Output
 -------------
 
